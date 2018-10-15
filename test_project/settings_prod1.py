@@ -9,7 +9,7 @@ DATABASES = {
         'NAME':'db11',
         'USER':'django_shop1',
         'PASSWORD':'123',
-        'HOST':'localhost',
+        'HOST':'',
         'PORT':'',
 
 
