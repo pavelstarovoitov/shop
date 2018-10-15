@@ -144,6 +144,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 
 
 try:
-    from .settings_prod1 import *
+    from .settings_prod import *
 except:
     pass
