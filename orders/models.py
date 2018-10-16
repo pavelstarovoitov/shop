@@ -5,6 +5,7 @@ from products.models import Product
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from utils.main import disable_for_loaddata
+import weakref
 
 class Status(models.Model):
     name = models.CharField(max_length=24, blank=True, null=True, default=None)
@@ -86,7 +87,8 @@ def product_in_order_post_save(sender, instance, created, **kwargs):
 
         instance.order.total_price = order_total_price
         instance.order.save(force_update=True)
-post_save.connect(product_in_order_post_save, sender=ProductInOrder)
+ref = weakref.ref(ProductInOrder)
+post_save.connect(product_in_order_post_save, sender=ref)
 
 
 class ProductInBusket(models.Model):
