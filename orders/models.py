@@ -87,8 +87,8 @@ def product_in_order_post_save(sender, instance, created, **kwargs):
 
         instance.order.total_price = order_total_price
         instance.order.save(force_update=True)
-ref = weakref.ref(ProductInOrder)
-post_save.connect(product_in_order_post_save, sender=ref)
+#ref = weakref.ref(ProductInOrder)
+post_save.connect(product_in_order_post_save, sender=ProductInOrder)
 
 
 class ProductInBusket(models.Model):

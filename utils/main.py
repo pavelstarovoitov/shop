@@ -6,4 +6,4 @@ def disable_for_loaddata(signal_handler):
          if kwargs['raw']:
              return
          signal_handler(*args, **kwargs)
-         return wrapper
+     return wrapper
